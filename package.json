@@ -18,6 +18,7 @@
     "typescript": "^3.3.3"
   },
   "devDependencies": {
+    "@types/js-cookie": "^2.2.6",
     "@types/node": "^11.9.4"
   },
   "engines": {
