@@ -5,11 +5,13 @@
  * Typescript implementation by @farandal - Francisco Aranda - farandal@gmail.com - http://linkedin.com/in/farandal
  * 
  */
-//import {IStreamInfo,IMediaInfo} from "./interfaces";
+
 import { mungeSDPPublish } from './WowzaMungeSDP';
 import WowzaPeerConnectionPublish from './WowzaPeerConnectionPublish';
 import SoundMeter from './SoundMeter';
 import { ICallbacks } from './interfaces';
+// @ts-ignore
+import Bowser from "bowser";
 
 interface IProps {
   videoElementPublish?: any,
@@ -98,6 +100,24 @@ let soundMeter:SoundMeter;
 let soundMeterInterval:ReturnType<typeof setTimeout>;
 
 let callbacks:ICallbacks;
+
+const canScreenShare = () => {
+
+  const browser = Bowser.getParser(window.navigator.userAgent);
+  
+  let browserName = browser.getBrowser().name;
+
+  if (browserName === 'Safari') {
+    return false;
+  }
+  if (browserName === 'Firefox') {
+    return false;
+  }
+  if (/mobi|android/i.test(navigator.userAgent.toLowerCase())) {
+    return false;
+  }
+  return true;
+}
 
 const setState = (newState: IState):Promise<IState> =>
 {
@@ -364,7 +384,7 @@ const getDevices = ():Promise<IState> =>
   return new Promise((resolve,reject) =>
   {
     console.log('WowzaWebRTCPublish.getDevices');
-    navigator.mediaDevices.enumerateDevices().then(async (devices) =>
+    navigator.mediaDevices.enumerateDevices().then(async (devices:MediaDeviceInfo[]) =>
     {
       console.log(JSON.stringify(devices));
       let constraints = {...getState().constraints};
@@ -383,6 +403,13 @@ const getDevices = ():Promise<IState> =>
           microphones.push(devices[i]);
         }
       }
+
+
+      if (canScreenShare())
+      {
+        cameras.push({deviceId:'screen_screen',kind:'videoinput',label:'Screen Share'} as MediaDeviceInfo);
+      }
+
       let newStateUpdate = {cameras:cameras,microphones:microphones,constraints:constraints};
       let newState = await setState(newStateUpdate);
       resolve(newState);

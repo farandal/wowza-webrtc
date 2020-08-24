@@ -18,8 +18,8 @@ let audioIndex;
 
 const addAudio = (sdpStr:string, audioLine:string) => {
   let sdpLines = sdpStr.split(/\r\n/);
-  //let sdpSection = 'header';
-  //let hitMID = false;
+  let sdpSection = 'header';
+  let hitMID = false;
   let sdpStrRet = '';
   let done = false;
 
@@ -42,8 +42,8 @@ const addAudio = (sdpStr:string, audioLine:string) => {
 
 const addVideo = (sdpStr:string, videoLine:string) => {
   let sdpLines = sdpStr.split(/\r\n/);
-  //let sdpSection = 'header';
-  //let hitMID = false;
+  let sdpSection = 'header';
+  let hitMID = false;
   let sdpStrRet = '';
   let done = false;
 
