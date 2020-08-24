@@ -23,13 +23,13 @@
         useSoundMeter: true,
       },
       {
-        onStateChanged: (newState: any) => {
+        onStateChanged: (newState: IState) => {
           console.log('WowzaWebRTCPublish.onStateChanged');
 
-          // Set the cameras
-          this.formPresets.cameras = newState.cameras;
-          // Set the microphones
-          this.formPresets.microphones = newState.microphones;
+          // Update the cameras the cameras
+          this.form.cameras = newState.cameras;
+          // Update the microphones
+          this.form.microphones = newState.microphones;
 
           if (newState.connectionState === 'connected') {
             this.onPublishPeerConnected();
@@ -47,7 +47,6 @@
         onSoundMeter: this.onSoundMeter,
       }
     );
-
 
     onPublishPeerConnected = () => {
       console.info('onPublishPeerConnected');
@@ -74,3 +73,16 @@
 
     
   ```
+
+  ## Class Instance Methods
+
+  ```
+
+  this.wowzaWebRTCPublish.setCamera(cameraId:string);
+  this.wowzaWebRTCPublish.setMicrophone(micId:string);
+  this.wowzaWebRTCPublish.setVideoEnabled(status:boolean);
+  this.wowzaWebRTCPublish.setAudioEnabled(status:boolean);
+  this.wowzaWebRTCPublish.updateFrameSize(framesize:string);
+
+ ```
+
