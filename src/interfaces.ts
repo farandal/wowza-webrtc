@@ -1,5 +1,5 @@
 /*
- *  Typescript migration by @farandal - Francisco Aranda - farandal@gmail.com - http://linkedin.com/in/farandal
+ *  Typescript implementation by @farandal - Francisco Aranda - farandal@gmail.com - http://linkedin.com/in/farandal
  * 
  */
 
