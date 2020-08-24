@@ -1,0 +1,35 @@
+{
+  "name": "wowza-webrtc",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Wowza WebRTC Library",
+  "main": "main.js",
+  "types": "./src/wowza.d.ts",
+  "scripts": {
+    "build": "rm -rf *.tgz ./lib/* && tsc",
+    "prepublish": "npm run build"
+  },
+  "author": "@farandal - Francisco Aranda - farandal@gmail.com - http://linkedin.com/in/farandal",
+  "license": "ISC",
+  "dependencies": {
+    "bowser": "^2.10.0",
+    "js-cookie": "^2.2.1",
+    "typescript": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^11.9.4"
+  },
+  "engines": {
+    "node": "8.11.4",
+    "yarn": ">=1.5"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "jsxBracketSameLine": true,
+    "singleQuote": true,
+    "alignObjectProperties": true,
+    "arrayExpand": true,
+    "jsxSingleQuote": true,
+    "tabWidth": 2
+  }
+}

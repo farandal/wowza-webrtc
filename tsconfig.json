@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "outDir": "./lib",
+    "target": "es6",
+    "module": "commonjs",
+    //"noImplicitAny": true,
+    "removeComments": true,
+    "declaration": true,
+  },
+  "include": ["src/**/*.ts", "src/*.ts", "src/**/*.tsx", "src/*.tsx"],
+  "exclude": [
+    "src/**/*.js",
+    "src/*.js",
+    "src/**/*.jsx",
+    "src/*.jsx",
+    "lib/**/*.js",
+    "lib/*.js",
+    "lib/**/*.jsx",
+    "lib/*.jsx",
+    "node_modules",
+    "build",
+    "dist"
+  ]
+}
