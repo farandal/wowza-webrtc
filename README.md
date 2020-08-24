@@ -76,13 +76,18 @@
 
   ## Class Instance Methods
 
-  ```
+  ```javascript
 
   this.wowzaWebRTCPublish.setCamera(cameraId:string);
   this.wowzaWebRTCPublish.setMicrophone(micId:string);
   this.wowzaWebRTCPublish.setVideoEnabled(status:boolean);
   this.wowzaWebRTCPublish.setAudioEnabled(status:boolean);
   this.wowzaWebRTCPublish.updateFrameSize(framesize:string);
+  this.wowzaWebRTCPublish.set(settings:IState);
 
+  // Cookie helper
+  Settings.saveToCookie(settings:IState);
+  Settings.mapFromCookie():IState
+ 
  ```
 
