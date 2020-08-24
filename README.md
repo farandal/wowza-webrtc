@@ -16,7 +16,8 @@
 
     import WowzaWebRTCPublish, { IState } from '@wowza/WowzaWebRTCPublish';
     import Settings from '@wowza/Settings';
-
+    
+    //this.wowzaWebRTCPublish = new WowzaWebRTCPublish(IState,ICallbacks)
     this.wowzaWebRTCPublish = new WowzaWebRTCPublish(
       {
         videoElementPublish: this.videoElement.nativeElement as HTMLVideoElement,
