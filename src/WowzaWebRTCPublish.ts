@@ -109,6 +109,18 @@
      this.callbacks = _callbacks;
    };
  
+
+   public updateFrameSize = (frameSize:string) => {
+    let constraints = JSON.parse(JSON.stringify(this.getState().constraints));
+    if (frameSize == 'default') {
+      constraints.video['width'] = { min: '640', ideal: '1280', max: '1920' };
+      constraints.video['height'] = { min: '360', ideal: '720', max: '1080' };
+    } else {
+      constraints.video['width'] = { exact: frameSize.split('x')[0] };
+      constraints.video['height'] = { exact: frameSize.split('x')[1] };
+    }
+    this.set({ constraints: constraints });
+   }
    // External set
    public set = async (props: IProps) => {
      console.log('WowzaWebRTC.set');
